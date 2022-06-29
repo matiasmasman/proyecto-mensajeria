@@ -19,7 +19,7 @@ router.post('/', upload.single('myFile'), (req, res) => {
     console.log(req.file);
     res.send('Saving pdf');
 
-    const { id, filename } = req.body;
+    /*const { id, filename } = req.body;
     console.log(req.body);
     const query = `
         CALL escuelaAddOrEdit(?, ?);
@@ -30,7 +30,7 @@ router.post('/', upload.single('myFile'), (req, res) => {
         } else {
             console.log(err);
         }
-     });
+     });*/
 });
 
 module.exports = router;
