@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
     `;
     mysqlConnection.query(query, [id, nombre], (err, rows, fields) => {
         if (!err) {
-            res.json({Status: 'School Saved'});
+            res.json({ Status: 'School Saved' });
         } else {
             console.log(err);
         }
@@ -45,7 +45,7 @@ router.put('/:id', (req, res) => {
     const query = `CALL escuelaAddOrEdit(?, ?);`;
     mysqlConnection.query(query, [id, nombre], (err, rows, fields) => {
         if (!err) {
-            res.json({status: 'School Updated'});
+            res.json({ status: 'School Updated' });
         } else {
             console.log(err);
         }
@@ -57,7 +57,7 @@ router.delete('/:id', (req, res) => {
     const { id } = req.params;
     mysqlConnection.query('DELETE FROM escuela WHERE id = ?', [id], (err, rows, fields) => {
         if (!err) {
-            res.json({status: 'School Deleted'});
+            res.json({ status: 'School Deleted' });
         } else {
             console.log(err);
         }

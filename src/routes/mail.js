@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
     `;
     mysqlConnection.query(query, [id_mensaje, text, id_alumnos], (err, rows, fields) => {
         if (!err) {
-            res.json({status: 'Mail Saved'});
+            res.json({ status: 'Mail Saved' });
         } else {
             console.log(err);
         }
