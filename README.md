@@ -9,4 +9,33 @@ en package.json modificar script:
     "dev": "nodemon src/index.js"
 },
 
+#database
+// crear base de datos y tablas, falta relacionarlas y asignarle la clave foránea.
+
+CREATE DATABASE IF NOT EXISTS apirest;
+
+USE apirest;
+
+CREATE TABLE escuela (
+	id INT (11) NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR (20) DEFAULT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE alumnos (
+	id_alumnos INT (11) NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR (20) DEFAULT NULL,
+	id_escuela INT (11),
+	PRIMARY KEY (id_alumnos)
+);
+
+CREATE TABLE mensaje (
+	id_mensaje INT (11) NOT NULL AUTO_INCREMENT,
+	text VARCHAR (100) DEFAULT NULL,
+	destinatario INT (11),
+	id_alumnos INT (11)
+	PRIMARY KEY (id_mensaje)
+);
+
+// re
 ![Captura de pantalla (63)](https://user-images.githubusercontent.com/101646392/176952427-ef76f1b1-a989-44a7-86cb-96162b05f958.png)
