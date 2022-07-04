@@ -46,8 +46,9 @@ CREATE PROCEDURE creaMail (
 )
 BEGIN
 	INSERT INTO mensaje (id_mensaje, text, destinatario, id_alumnos) 
-    VALUES (_id_mensaje, _text, _destinatario, _id_alumnos);
+	VALUES (_id_mensaje, _text, _destinatario, _id_alumnos);
 END
 //
 
+// relaciones entre tablas
 ![Captura de pantalla (63)](https://user-images.githubusercontent.com/101646392/176952427-ef76f1b1-a989-44a7-86cb-96162b05f958.png)
