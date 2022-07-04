@@ -39,6 +39,48 @@ CREATE TABLE mensaje (
 
 USE apirest;
 DELIMITER //
+CREATE PROCEDURE alumnosAddOrEdit (
+	IN _id_alumnos INT,
+	IN _nombre VARCHAR (20)
+)
+BEGIN
+	IF _id_alumnos = 0 THEN
+		INSERT INTO alumnos (nombre) VALUES (_nombre);
+    
+    	SET _id_alumnos = LAST_INSERT_ID();
+	ELSE
+    	UPDATE alumnos
+        SET nombre = _nombre
+            WHERE id_alumnos = _id_alumnos;
+	END IF;
+    
+    SELECT _id_alumnos AS id_alumnos;
+END
+//
+
+USE apirest;
+DELIMITER //
+CREATE PROCEDURE escuelaAddOrEdit (
+	IN _id INT,
+	IN _nombre VARCHAR (20)
+)
+BEGIN
+	IF _id = 0 THEN
+		INSERT INTO escuela (nombre) VALUES (_nombre);
+    
+    	SET _id = LAST_INSERT_ID();
+	ELSE
+    	UPDATE escuela
+        SET nombre = _nombre
+            WHERE id = _id;
+	END IF;
+    
+    SELECT _id AS id;
+END
+//
+
+USE apirest;
+DELIMITER //
 CREATE PROCEDURE creaMail (
 	IN _id_mensaje INT,
 	IN _text VARCHAR (100),
