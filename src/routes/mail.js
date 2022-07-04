@@ -25,12 +25,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    const { id_mensaje, text, id_alumnos } = req.body;
+    const { id_mensaje, text, destinatario, id_alumnos } = req.body;
     console.log(req.body);
     const query = `
-        CALL creaMail(?, ?, ?);
+        CALL creaMail(?, ?, ?, ?);
     `;
-    mysqlConnection.query(query, [id_mensaje, text, id_alumnos], (err, rows, fields) => {
+    mysqlConnection.query(query, [id_mensaje, text, destinatario, id_alumnos], (err, rows, fields) => {
         if (!err) {
             res.json({ status: 'Mail Saved' });
         } else {
