@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const mysqlConnection = require('../database');
+const mysqlConnection = require('../database'); //utilizamos esta coneccion para utilizar los datos
 
 router.get('/', (req, res) => {
     mysqlConnection.query('SELECT * FROM escuela', (err, rows, fields) => {

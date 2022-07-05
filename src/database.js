@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 
+// creamos conexion a la base de datos
 const mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -7,6 +8,7 @@ const mysqlConnection = mysql.createConnection({
     database: 'apirest'
 });
 
+// conectamos a la base de datos
 mysqlConnection.connect(function (err) {
     if (err) {
         console.log(err);
